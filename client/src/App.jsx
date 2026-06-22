@@ -124,10 +124,12 @@ export default function App() {
       <header className="fixed top-0 left-0 w-full z-40 bg-gradient-to-b from-black/80 to-transparent backdrop-blur-md border-b border-white/5 transition-all duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex justify-between items-center">
           {/* Logo */}
-          <div className="flex items-center gap-2 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-            <div className="p-2 bg-gradient-to-r from-gold-500 to-gold-600 text-coffee-950 rounded-xl font-bold shadow-md shadow-gold-500/15">
-              <Coffee className="w-5 h-5" />
-            </div>
+          <div className="flex items-center gap-3 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+            <img 
+              src="/assets/logo.jpg" 
+              alt="Mana Katha Logo" 
+              className="w-12 h-12 object-cover rounded-full border border-gold-500/30 shadow-md shadow-gold-500/10"
+            />
             <div>
               <span className="font-serif font-bold text-white text-xl tracking-wider block leading-none">MANA KATHA</span>
               <span className="text-[9px] uppercase tracking-[0.2em] text-gold-400 font-semibold leading-none mt-1 block">Cafe & Rooftop</span>
@@ -224,10 +226,12 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-12 text-sm text-coffee-300">
           {/* Col 1 */}
           <div className="space-y-4">
-            <div className="flex items-center gap-2">
-              <div className="p-1.5 bg-gold-500 text-coffee-950 rounded-lg">
-                <Coffee className="w-4 h-4" />
-              </div>
+            <div className="flex items-center gap-3">
+              <img 
+                src="/assets/logo.jpg" 
+                alt="Mana Katha Logo" 
+                className="w-10 h-10 object-cover rounded-full border border-gold-500/20 shadow-md shadow-gold-500/5"
+              />
               <span className="font-serif font-bold text-white tracking-widest">MANA KATHA</span>
             </div>
             <p className="leading-relaxed text-xs">

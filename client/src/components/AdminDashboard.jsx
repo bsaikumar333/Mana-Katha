@@ -240,9 +240,11 @@ export default function AdminDashboard({ token, onLogout }) {
       {/* Header Admin Navbar */}
       <nav className="glass sticky top-0 z-30 border-b border-coffee-900 px-6 py-4 flex justify-between items-center">
         <div className="flex items-center gap-3">
-          <div className="p-2 bg-gold-500 text-coffee-950 rounded-xl">
-            <Coffee className="w-5 h-5" />
-          </div>
+          <img 
+            src="/assets/logo.jpg" 
+            alt="Mana Katha Logo" 
+            className="w-10 h-10 object-cover rounded-full border border-gold-500/30"
+          />
           <div>
             <h1 className="font-serif font-bold text-white text-lg tracking-wide">Mana Katha Dashboard</h1>
             <p className="text-[10px] text-gold-400 font-semibold uppercase tracking-widest">Administrator Portal</p>
