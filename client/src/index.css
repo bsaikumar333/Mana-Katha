@@ -1,0 +1,104 @@
+@import "tailwindcss";
+
+@theme {
+  --color-coffee-50: #fdfbf7;
+  --color-coffee-100: #f8f1e5;
+  --color-coffee-200: #eddcc5;
+  --color-coffee-300: #ddc09b;
+  --color-coffee-400: #c59a6c;
+  --color-coffee-500: #a3713f;
+  --color-coffee-600: #8c5d31;
+  --color-coffee-700: #704724;
+  --color-coffee-800: #5c3a1d;
+  --color-coffee-900: #482d17;
+  --color-coffee-950: #2b1a0c;
+
+  --color-gold-50: #fbfaf3;
+  --color-gold-100: #f5f2e1;
+  --color-gold-200: #e7dfbe;
+  --color-gold-300: #d4c591;
+  --color-gold-400: #bea45f;
+  --color-gold-500: #a9873d;
+  --color-gold-600: #947231;
+  --color-gold-700: #7c5c27;
+  --color-gold-800: #644921;
+  --color-gold-900: #523a1c;
+  --color-gold-950: #30210e;
+
+  --font-sans: 'Outfit', sans-serif;
+  --font-serif: 'Playfair Display', serif;
+
+  --animate-fade-in: fadeIn 0.6s ease-out forwards;
+  --animate-slide-up: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  @keyframes slideUp {
+    0% { transform: translateY(30px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+  }
+}
+
+body {
+  background-color: #0c0908;
+  color: var(--color-coffee-100);
+  font-family: 'Outfit', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
+  color: var(--color-coffee-50);
+}
+
+@utility glass {
+  background: rgba(22, 17, 15, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(221, 192, 155, 0.1);
+}
+
+@utility glass-light {
+  background: rgba(253, 251, 247, 0.05);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(253, 251, 247, 0.05);
+}
+
+@utility hover-card-gold {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  &:hover {
+    transform: translateY(-4px);
+    border-color: rgba(169, 135, 61, 0.4);
+    box-shadow: 0 10px 30px -10px rgba(169, 135, 61, 0.2);
+  }
+}
+
+@utility bg-circle-glow {
+  filter: blur(120px);
+  opacity: 0.15;
+  pointer-events: none;
+}
+
+/* Custom premium scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0c0908;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #5c3a1d;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a9873d;
+}
