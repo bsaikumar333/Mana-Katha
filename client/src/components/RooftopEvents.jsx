@@ -26,7 +26,7 @@ export default function RooftopEvents() {
   ];
 
   return (
-    <section id="rooftop" className="relative z-20 py-24 bg-gradient-to-b from-coffee-950 to-black overflow-hidden">
+    <section id="rooftop" className="relative z-20 py-24 bg-gradient-to-b from-[#0a1128]/50 to-[#020617]/80 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Layout Grid */}

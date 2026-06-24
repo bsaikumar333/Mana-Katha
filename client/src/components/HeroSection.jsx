@@ -19,10 +19,10 @@ export default function HeroSection() {
   const translateY = scrollY * 0.3; // Parallax translation
 
   return (
-    <div className="relative w-full h-screen overflow-hidden bg-black">
+    <div className="relative w-full h-screen overflow-hidden bg-transparent">
       {/* Background Glow */}
-      <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-coffee-800 rounded-full bg-circle-glow animate-pulse duration-10000" />
-      <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-gold-900 rounded-full bg-circle-glow" />
+      <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-indigo-900/40 rounded-full bg-circle-glow animate-pulse duration-10000" />
+      <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-blue-900/30 rounded-full bg-circle-glow" />
 
       {/* Fixed Parallax Container */}
       <div 
@@ -40,12 +40,12 @@ export default function HeroSection() {
             alt="Mana Katha Espresso Dispenser" 
             className="w-full h-full object-cover opacity-45 mix-blend-lighten"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-coffee-950 via-transparent to-black opacity-80" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#070f24] via-transparent to-black opacity-80" />
         </div>
 
         {/* Hero Content */}
         <div className="relative z-20 text-center max-w-4xl mx-auto flex flex-col items-center">
-          <div className="flex items-center gap-2 mb-4 px-4 py-1.5 rounded-full border border-gold-500/30 bg-coffee-950/80 backdrop-blur-md animate-fade-in">
+          <div className="flex items-center gap-2 mb-4 px-4 py-1.5 rounded-full border border-gold-500/30 bg-[#070f24]/80 backdrop-blur-md animate-fade-in">
             <Coffee className="w-4 h-4 text-gold-400" />
             <span className="text-xs uppercase tracking-[0.25em] font-medium text-gold-300">
               Welcome to Mana Katha

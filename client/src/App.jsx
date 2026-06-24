@@ -118,7 +118,7 @@ export default function App() {
   }
 
   return (
-    <div className="relative bg-[#0c0908] min-h-screen text-coffee-100">
+    <div className="relative bg-transparent min-h-screen text-coffee-100">
       
       {/* Dynamic Header / Navbar */}
       <header className="fixed top-0 left-0 w-full z-40 bg-gradient-to-b from-black/80 to-transparent backdrop-blur-md border-b border-white/5 transition-all duration-300">

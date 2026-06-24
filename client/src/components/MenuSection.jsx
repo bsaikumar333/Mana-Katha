@@ -62,7 +62,7 @@ export default function MenuSection({ preOrderItems, onTogglePreOrder }) {
   const activeCategoryData = menu.find((cat) => cat.id === activeCategory);
 
   return (
-    <section id="menu" className="relative z-20 py-24 bg-coffee-950/45 border-t border-coffee-900">
+    <section id="menu" className="relative z-20 py-24 bg-[#0a1128]/35 border-t border-white/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}

@@ -235,7 +235,7 @@ export default function AdminDashboard({ token, onLogout }) {
   const filteredItems = menuItems.filter((item) => item.category_id === activeCategory);
 
   return (
-    <div className="min-h-screen bg-[#0a0706] text-coffee-100 pb-20 select-none">
+    <div className="min-h-screen bg-transparent text-coffee-100 pb-20 select-none">
       
       {/* Header Admin Navbar */}
       <nav className="glass sticky top-0 z-30 border-b border-coffee-900 px-6 py-4 flex justify-between items-center">

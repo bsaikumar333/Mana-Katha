@@ -43,10 +43,10 @@ export default function AdminLogin({ onLoginSuccess, onGoHome }) {
   };
 
   return (
-    <div className="min-h-screen bg-black flex flex-col items-center justify-center p-4 relative overflow-hidden select-none">
+    <div className="min-h-screen bg-transparent flex flex-col items-center justify-center p-4 relative overflow-hidden select-none">
       
       {/* Background glow effects */}
-      <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-coffee-900/40 rounded-full bg-circle-glow animate-pulse" />
+      <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-indigo-900/40 rounded-full bg-circle-glow animate-pulse" />
       <div className="absolute bottom-1/4 right-1/4 w-[350px] h-[350px] bg-gold-950/20 rounded-full bg-circle-glow" />
 
       {/* Main Container */}

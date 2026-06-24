@@ -42,7 +42,8 @@
 }
 
 body {
-  background-color: #0c0908;
+  background: linear-gradient(135deg, #020617 0%, #070f24 50%, #15224e 100%);
+  background-attachment: fixed;
   color: var(--color-coffee-100);
   font-family: 'Outfit', sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -91,11 +92,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 ::-webkit-scrollbar-track {
-  background: #0c0908;
+  background: #020617;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #5c3a1d;
+  background: #15224e;
   border-radius: 3px;
 }
 

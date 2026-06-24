@@ -95,7 +95,7 @@ export default function TableBooking({ preOrderItems, onRemovePreOrder, onClearP
   const totalAmount = preOrderItems.reduce((sum, item) => sum + item.price, 0);
 
   return (
-    <section id="booking" className="relative z-20 py-24 bg-coffee-950/20 border-t border-coffee-900">
+    <section id="booking" className="relative z-20 py-24 bg-[#0a1128]/15 border-t border-white/5">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
