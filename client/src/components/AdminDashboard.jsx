@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Plus, Edit2, Trash2, LogOut, Coffee, Check, X, RefreshCw, Layers } from 'lucide-react';
+import API_BASE_URL from '../apiConfig';
 
 export default function AdminDashboard({ token, onLogout }) {
   const [categories, setCategories] = useState([]);
@@ -34,13 +35,13 @@ export default function AdminDashboard({ token, onLogout }) {
       setLoading(true);
       setError('');
       // Fetch categories
-      const catRes = await fetch('http://localhost:5000/api/menu/categories');
+      const catRes = await fetch(`${API_BASE_URL}/api/menu/categories`);
       if (!catRes.ok) throw new Error('Failed to load categories.');
       const catData = await catRes.json();
       setCategories(catData);
 
       // Fetch all categories + items to flatten items
-      const menuRes = await fetch('http://localhost:5000/api/menu');
+      const menuRes = await fetch(`${API_BASE_URL}/api/menu`);
       if (!menuRes.ok) throw new Error('Failed to load menu items.');
       const menuData = await menuRes.json();
       
@@ -83,8 +84,8 @@ export default function AdminDashboard({ token, onLogout }) {
       setLoading(true);
       const isEdit = categoryForm.id !== null;
       const url = isEdit 
-        ? `http://localhost:5000/api/menu/categories/${categoryForm.id}`
-        : 'http://localhost:5000/api/menu/categories';
+        ? `${API_BASE_URL}/api/menu/categories/${categoryForm.id}`
+        : `${API_BASE_URL}/api/menu/categories`;
       const method = isEdit ? 'PUT' : 'POST';
 
       const res = await fetch(url, {
@@ -115,7 +116,7 @@ export default function AdminDashboard({ token, onLogout }) {
 
     try {
       setLoading(true);
-      const res = await fetch(`http://localhost:5000/api/menu/categories/${catId}`, {
+      const res = await fetch(`${API_BASE_URL}/api/menu/categories/${catId}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`
@@ -148,8 +149,8 @@ export default function AdminDashboard({ token, onLogout }) {
       setLoading(true);
       const isEdit = itemForm.id !== null;
       const url = isEdit 
-        ? `http://localhost:5000/api/menu/items/${itemForm.id}`
-        : 'http://localhost:5000/api/menu/items';
+        ? `${API_BASE_URL}/api/menu/items/${itemForm.id}`
+        : `${API_BASE_URL}/api/menu/items`;
       const method = isEdit ? 'PUT' : 'POST';
 
       const res = await fetch(url, {
@@ -187,7 +188,7 @@ export default function AdminDashboard({ token, onLogout }) {
 
     try {
       setLoading(true);
-      const res = await fetch(`http://localhost:5000/api/menu/items/${itemId}`, {
+      const res = await fetch(`${API_BASE_URL}/api/menu/items/${itemId}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`
@@ -207,7 +208,7 @@ export default function AdminDashboard({ token, onLogout }) {
 
   const handleToggleAvailability = async (item) => {
     try {
-      const res = await fetch(`http://localhost:5000/api/menu/items/${item.id}`, {
+      const res = await fetch(`${API_BASE_URL}/api/menu/items/${item.id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

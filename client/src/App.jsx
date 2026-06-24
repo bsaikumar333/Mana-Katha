@@ -6,6 +6,7 @@ import RooftopEvents from './components/RooftopEvents';
 import TableBooking from './components/TableBooking';
 import AdminLogin from './components/AdminLogin';
 import AdminDashboard from './components/AdminDashboard';
+import API_BASE_URL from './apiConfig';
 
 export default function App() {
   const [view, setView] = useState('home'); // 'home', 'admin-login', 'admin-dashboard'
@@ -34,7 +35,7 @@ export default function App() {
 
   const verifyToken = async (authToken) => {
     try {
-      const res = await fetch('http://localhost:5000/api/auth/verify', {
+      const res = await fetch(`${API_BASE_URL}/api/auth/verify`, {
         headers: {
           'Authorization': `Bearer ${authToken}`
         }

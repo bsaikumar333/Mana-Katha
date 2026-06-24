@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Coffee, Flame, RotateCcw, Plus, Check } from 'lucide-react';
+import API_BASE_URL from '../apiConfig';
 
 export default function MenuSection({ preOrderItems, onTogglePreOrder }) {
   const [menu, setMenu] = useState([]);
@@ -15,7 +16,7 @@ export default function MenuSection({ preOrderItems, onTogglePreOrder }) {
   const fetchMenu = async () => {
     try {
       setLoading(true);
-      const res = await fetch('http://localhost:5000/api/menu');
+      const res = await fetch(`${API_BASE_URL}/api/menu`);
       if (!res.ok) throw new Error('Failed to fetch menu.');
       const data = await res.json();
       setMenu(data);
