@@ -85,7 +85,7 @@ export default function TableBooking({ preOrderItems, onRemovePreOrder, onClearP
 
     // Encode URI
     const encodedMessage = encodeURIComponent(message);
-    const ownerPhoneNumber = '919876543210'; // Set default owner phone number
+    const ownerPhoneNumber = '919849359495'; // Set default owner phone number
     const whatsappUrl = `https://wa.me/${ownerPhoneNumber}?text=${encodedMessage}`;
 
     // Open WhatsApp in new tab
