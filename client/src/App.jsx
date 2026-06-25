@@ -243,8 +243,9 @@ export default function App() {
           {/* Col 2 */}
           <div>
             <h4 className="font-serif font-semibold text-white uppercase tracking-widest text-xs mb-4">Location & Hours</h4>
-            <p className="leading-relaxed text-xs mb-2">123 Scenic Heights Road, Jubilee Hills, Hyderabad</p>
-            <p className="leading-relaxed text-xs text-gold-400 font-semibold">Open Daily: 9:00 AM - 11:30 PM</p>
+            <p className="leading-relaxed text-xs mb-2 max-w-xs">5th & 6th floor, BNR Tower, Panama Godowns, H.no:5-581/1A, Plot no 38&39, above Mithaiwala, Vanasthalipuram, Telangana 500070</p>
+            <p className="leading-relaxed text-xs mb-2 text-coffee-300 font-medium">Phone: <a href="tel:08883031111" className="hover:text-gold-400 transition-all text-gold-400">088830 31111</a></p>
+            <p className="leading-relaxed text-xs text-gold-400 font-semibold mt-1">Open Daily: 9:00 AM - 11:30 PM</p>
           </div>
 
           {/* Col 3 */}
