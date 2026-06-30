@@ -133,7 +133,7 @@ export default function App() {
             />
             <div>
               <span className="font-serif font-bold text-white text-xl tracking-wider block leading-none">MANA KATHA</span>
-              <span className="text-[9px] uppercase tracking-[0.2em] text-gold-400 font-semibold leading-none mt-1 block">Cafe & Rooftop</span>
+              <span className="text-[9px] uppercase tracking-[0.2em] text-gold-400 font-semibold leading-none mt-1 block">Cafe & Restaurant</span>
             </div>
           </div>
 
