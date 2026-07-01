@@ -90,12 +90,30 @@ export default function App() {
     setPreOrderItems([]);
   };
 
-  // Scroll to section helper
-  const scrollTo = (id) => {
+  // Navigation & Scroll helper
+  const navigateAndScroll = (targetView, sectionId) => {
     setMobileMenuOpen(false);
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+    if (view !== targetView) {
+      setView(targetView);
+      setTimeout(() => {
+        if (sectionId === 'top') {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else {
+          const element = document.getElementById(sectionId);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }
+        }
+      }, 100);
+    } else {
+      if (sectionId === 'top') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
     }
   };
 
@@ -125,7 +143,7 @@ export default function App() {
       <header className="fixed top-0 left-0 w-full z-40 bg-gradient-to-b from-black/80 to-transparent backdrop-blur-md border-b border-white/5 transition-all duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex justify-between items-center">
           {/* Logo */}
-          <div className="flex items-center gap-3 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+          <div className="flex items-center gap-3 cursor-pointer" onClick={() => navigateAndScroll('home', 'top')}>
             <img 
               src="/assets/logo.jpg" 
               alt="Mana Katha Logo" 
@@ -139,28 +157,27 @@ export default function App() {
 
           {/* Desktop Nav links */}
           <nav className="hidden md:flex items-center gap-8">
-            <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="text-sm font-medium hover:text-gold-400 tracking-wider transition-all">Home</button>
-            <button onClick={() => scrollTo('menu')} className="text-sm font-medium hover:text-gold-400 tracking-wider transition-all">Menu</button>
-            <button onClick={() => scrollTo('rooftop')} className="text-sm font-medium hover:text-gold-400 tracking-wider transition-all">Rooftop & Events</button>
-            <button onClick={() => scrollTo('booking')} className="text-sm font-medium hover:text-gold-400 tracking-wider transition-all">Bookings</button>
+            <button onClick={() => navigateAndScroll('home', 'top')} className="text-sm font-medium hover:text-gold-400 tracking-wider transition-all cursor-pointer">Home</button>
+            <button onClick={() => navigateAndScroll('menu', 'top')} className="text-sm font-medium hover:text-gold-400 tracking-wider transition-all cursor-pointer">Menu</button>
+            <button onClick={() => navigateAndScroll('home', 'rooftop')} className="text-sm font-medium hover:text-gold-400 tracking-wider transition-all cursor-pointer">Rooftop & Events</button>
+            <button onClick={() => navigateAndScroll('home', 'booking')} className="text-sm font-medium hover:text-gold-400 tracking-wider transition-all cursor-pointer">Bookings</button>
           </nav>
 
           {/* Table Booking Header Button */}
           <div className="hidden md:flex items-center gap-4">
             {preOrderItems.length > 0 && (
-              <a 
-                href="#booking" 
-                onClick={() => scrollTo('booking')} 
-                className="flex items-center gap-2 px-3 py-1.5 bg-coffee-900 border border-gold-500/20 text-gold-400 hover:text-white rounded-full text-xs font-semibold uppercase tracking-wider transition-all"
+              <button 
+                onClick={() => navigateAndScroll('home', 'booking')} 
+                className="flex items-center gap-2 px-3 py-1.5 bg-coffee-900 border border-gold-500/20 text-gold-400 hover:text-white rounded-full text-xs font-semibold uppercase tracking-wider transition-all cursor-pointer"
               >
                 <ShoppingCart className="w-3.5 h-3.5" />
                 <span>Pre-orders ({preOrderItems.length})</span>
-              </a>
+              </button>
             )}
             
             <button 
-              onClick={() => scrollTo('booking')}
-              className="px-6 py-2.5 rounded-full bg-gradient-to-r from-gold-500 to-gold-600 text-coffee-950 hover:from-gold-400 hover:to-gold-500 text-sm font-semibold tracking-wider transition-all"
+              onClick={() => navigateAndScroll('home', 'booking')}
+              className="px-6 py-2.5 rounded-full bg-gradient-to-r from-gold-500 to-gold-600 text-coffee-950 hover:from-gold-400 hover:to-gold-500 text-sm font-semibold tracking-wider transition-all cursor-pointer"
             >
               Reserve Table
             </button>
@@ -178,14 +195,14 @@ export default function App() {
         {/* Mobile Nav Drawer */}
         {mobileMenuOpen && (
           <div className="md:hidden glass border-b border-coffee-900 px-6 py-8 space-y-6 flex flex-col animate-fade-in select-none">
-            <button onClick={() => { window.scrollTo({ top: 0, behavior: 'smooth' }); setMobileMenuOpen(false); }} className="text-left text-lg font-medium hover:text-gold-400">Home</button>
-            <button onClick={() => scrollTo('menu')} className="text-left text-lg font-medium hover:text-gold-400">Menu</button>
-            <button onClick={() => scrollTo('rooftop')} className="text-left text-lg font-medium hover:text-gold-400">Rooftop & Events</button>
-            <button onClick={() => scrollTo('booking')} className="text-left text-lg font-medium hover:text-gold-400">Bookings</button>
+            <button onClick={() => navigateAndScroll('home', 'top')} className="text-left text-lg font-medium hover:text-gold-400">Home</button>
+            <button onClick={() => navigateAndScroll('menu', 'top')} className="text-left text-lg font-medium hover:text-gold-400">Menu</button>
+            <button onClick={() => navigateAndScroll('home', 'rooftop')} className="text-left text-lg font-medium hover:text-gold-400">Rooftop & Events</button>
+            <button onClick={() => navigateAndScroll('home', 'booking')} className="text-left text-lg font-medium hover:text-gold-400">Bookings</button>
             
             {preOrderItems.length > 0 && (
               <button 
-                onClick={() => scrollTo('booking')} 
+                onClick={() => navigateAndScroll('home', 'booking')} 
                 className="w-full py-3 bg-coffee-900/60 border border-gold-500/20 text-gold-400 rounded-xl flex items-center justify-center gap-2 text-sm font-semibold"
               >
                 <ShoppingCart className="w-4 h-4" /> Selected Pre-orders ({preOrderItems.length})
@@ -193,7 +210,7 @@ export default function App() {
             )}
 
             <button 
-              onClick={() => scrollTo('booking')}
+              onClick={() => navigateAndScroll('home', 'booking')}
               className="w-full py-3.5 bg-gradient-to-r from-gold-500 to-gold-600 text-coffee-950 rounded-xl text-center font-bold text-sm"
             >
               Reserve Table
@@ -204,22 +221,29 @@ export default function App() {
 
       {/* Main Landing Sections */}
       <main className="relative">
-        <HeroSection />
-        
-        {/* Decorative divider */}
-        <div className="relative z-20 h-24 bg-gradient-to-b from-transparent to-coffee-950/45 -mt-24 pointer-events-none" />
+        {view === 'home' && (
+          <>
+            <HeroSection onExploreMenu={() => navigateAndScroll('menu', 'top')} />
+            
+            {/* Decorative divider */}
+            <div className="relative z-20 h-24 bg-gradient-to-b from-transparent to-coffee-950/45 -mt-24 pointer-events-none" />
 
-        {/* Client-Facing Sections */}
-        <MenuSection 
-          preOrderItems={preOrderItems} 
-          onTogglePreOrder={handleTogglePreOrder} 
-        />
-        <RooftopEvents />
-        <TableBooking 
-          preOrderItems={preOrderItems} 
-          onRemovePreOrder={handleRemovePreOrder}
-          onClearPreOrder={handleClearPreOrder}
-        />
+            <RooftopEvents />
+            <TableBooking 
+              preOrderItems={preOrderItems} 
+              onRemovePreOrder={handleRemovePreOrder}
+              onClearPreOrder={handleClearPreOrder}
+            />
+          </>
+        )}
+        {view === 'menu' && (
+          <div className="pt-24 pb-12">
+            <MenuSection 
+              preOrderItems={preOrderItems} 
+              onTogglePreOrder={handleTogglePreOrder} 
+            />
+          </div>
+        )}
       </main>
 
       {/* Footer */}
@@ -252,10 +276,10 @@ export default function App() {
           <div>
             <h4 className="font-serif font-semibold text-white uppercase tracking-widest text-xs mb-4">Quick Links</h4>
             <ul className="space-y-2 text-xs">
-              <li><button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:text-gold-400 transition-all">Home</button></li>
-              <li><button onClick={() => scrollTo('menu')} className="hover:text-gold-400 transition-all">Menu</button></li>
-              <li><button onClick={() => scrollTo('rooftop')} className="hover:text-gold-400 transition-all">Rooftop Ambience</button></li>
-              <li><button onClick={() => scrollTo('booking')} className="hover:text-gold-400 transition-all">Table Reservations</button></li>
+              <li><button onClick={() => navigateAndScroll('home', 'top')} className="hover:text-gold-400 transition-all text-left cursor-pointer">Home</button></li>
+              <li><button onClick={() => navigateAndScroll('menu', 'top')} className="hover:text-gold-400 transition-all text-left cursor-pointer">Menu</button></li>
+              <li><button onClick={() => navigateAndScroll('home', 'rooftop')} className="hover:text-gold-400 transition-all text-left cursor-pointer">Rooftop Ambience</button></li>
+              <li><button onClick={() => navigateAndScroll('home', 'booking')} className="hover:text-gold-400 transition-all text-left cursor-pointer">Table Reservations</button></li>
             </ul>
           </div>
 
@@ -264,7 +288,7 @@ export default function App() {
             <h4 className="font-serif font-semibold text-white uppercase tracking-widest text-xs mb-4">Administrative</h4>
             <button 
               onClick={() => { setView('admin-login'); window.scrollTo({ top: 0 }); }}
-              className="inline-flex items-center gap-2 text-xs font-semibold tracking-wider uppercase text-gold-400 hover:text-gold-300 border border-gold-500/20 px-4 py-2.5 rounded-full bg-coffee-950/40 hover:bg-coffee-950 transition-all"
+              className="inline-flex items-center gap-2 text-xs font-semibold tracking-wider uppercase text-gold-400 hover:text-gold-300 border border-gold-500/20 px-4 py-2.5 rounded-full bg-coffee-950/40 hover:bg-coffee-950 transition-all cursor-pointer"
             >
               <Lock className="w-3.5 h-3.5" /> Owner Portal
             </button>
@@ -280,7 +304,7 @@ export default function App() {
       {showScrollTop && (
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="fixed bottom-8 right-8 z-40 p-3 bg-gold-500 hover:bg-gold-400 text-coffee-950 rounded-full shadow-lg hover:scale-105 transition-all duration-300 border border-gold-400/25"
+          className="fixed bottom-8 right-8 z-40 p-3 bg-gold-500 hover:bg-gold-400 text-coffee-950 rounded-full shadow-lg hover:scale-105 transition-all duration-300 border border-gold-400/25 cursor-pointer"
           title="Back to Top"
         >
           <ArrowUp className="w-5 h-5" />

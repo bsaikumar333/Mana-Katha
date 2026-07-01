@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronDown, Coffee } from 'lucide-react';
 
-export default function HeroSection() {
+export default function HeroSection({ onExploreMenu }) {
   const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
@@ -63,12 +63,12 @@ export default function HeroSection() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <a 
-              href="#menu" 
-              className="px-8 py-4 rounded-full bg-gradient-to-r from-gold-500 to-gold-600 text-coffee-950 font-semibold tracking-wider hover:from-gold-400 hover:to-gold-500 shadow-lg shadow-gold-500/20 transition-all duration-300 hover:scale-105"
+            <button 
+              onClick={onExploreMenu}
+              className="px-8 py-4 rounded-full bg-gradient-to-r from-gold-500 to-gold-600 text-coffee-950 font-semibold tracking-wider hover:from-gold-400 hover:to-gold-500 shadow-lg shadow-gold-500/20 transition-all duration-300 hover:scale-105 cursor-pointer"
             >
               Explore Our Menu
-            </a>
+            </button>
             <a 
               href="#booking" 
               className="px-8 py-4 rounded-full border border-gold-500/40 text-gold-400 font-semibold tracking-wider hover:bg-gold-500/10 hover:text-white transition-all duration-300 backdrop-blur-sm"
